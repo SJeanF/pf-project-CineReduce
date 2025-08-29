@@ -5,22 +5,40 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import Cart from "../../containers/Cart";
 import * as S from "./styles";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
+  const [cartVisibility, setCartVisibility] = useState(false);
+  const [query, setQuery] = useState("");
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (query.trim()) {
+      navigate(`/search?q=${query}`);
+    }
+  };
+
   return (
     <S.Header>
-      <h2>NetoFilho</h2>
-      <S.SearchArea>
-        <S.SearchBar placeholder="Titulo do filme buscado" />
+      <S.PageTittle onClick={() => navigate("./")}>NetoFilho</S.PageTittle>
+      <S.SearchArea onSubmit={handleSubmit}>
+        <S.SearchBar
+          type="text"
+          placeholder="Titulo do filme buscado"
+          onChange={(e) => setQuery(e.target.value)}
+          value={query}
+        />
         <S.SearchButton type="submit">
           <FontAwesomeIcon icon={faMagnifyingGlass} />
         </S.SearchButton>
       </S.SearchArea>
       <div>
-        <S.CartButton type="button">
+        <S.CartButton type="button" onClick={() => setCartVisibility(true)}>
           <FontAwesomeIcon icon={faCartShopping} />
         </S.CartButton>
-        <Cart />
+        <Cart isVisible={cartVisibility} setIsVisible={setCartVisibility} />
       </div>
     </S.Header>
   );

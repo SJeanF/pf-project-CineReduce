@@ -11,7 +11,8 @@ export const CartCoverScreen = styled.div`
 
   display: flex;
 
-  visibility: hidden;
+  visibility: ${(props) => (props.$isVisible ? "visible" : "hidden")};
+  opacity: ${(props) => (props.$isVisible ? "1" : "0")};
 `;
 
 export const ExitArea = styled.div`

@@ -5,7 +5,7 @@ export const CardContainer = styled.li`
   width: 100%;
   max-width: 180px;
   height: 100%;
-  max-height: 320px;
+  max-height: 350px;
   padding-top: 24px;
   border-left: 8px solid #0c0020;
   border-right: 8px solid #0c0020;
@@ -38,6 +38,7 @@ export const CardImage = styled.img`
 `;
 
 export const CardFooter = styled.div`
+  min-height: 50px;
   display: flex;
   justify-content: space-around;
   align-items: center;

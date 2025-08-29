@@ -1,19 +1,28 @@
-import * as S from "./styles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
+import { useDispatch } from "react-redux";
+import * as S from "./styles";
+import { dotToComma, maxString } from "../../utils/stringFormat";
+import { addCart } from "../../redux/cart/slice";
 
-const MovieCard = () => {
+const MovieCard = ({ currentMovie }) => {
+  const dispatch = useDispatch();
+
+  const addToCart = () => {
+    dispatch(addCart(currentMovie));
+  };
+
   return (
     <S.CardContainer>
       <S.CardMain>
-        <S.CardImage src="https://image.tmdb.org/t/p/w500/j9hwS307Zlc5mQTbAnwV75vXG0H.jpg" />
+        <S.CardImage src={currentMovie.poster} />
       </S.CardMain>
       <S.CardFooter>
         <div>
-          <S.CartMovieTittle>Os Vingadores </S.CartMovieTittle>
-          <S.CardPriece>R$ 150</S.CardPriece>
+          <S.CartMovieTittle>{maxString(currentMovie.title)}</S.CartMovieTittle>
+          <S.CardPriece>R$ {dotToComma(currentMovie.price)}</S.CardPriece>
         </div>
-        <S.CardAddCartButton>
+        <S.CardAddCartButton onClick={addToCart}>
           <FontAwesomeIcon icon={faCartPlus} />
         </S.CardAddCartButton>
       </S.CardFooter>

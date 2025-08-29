@@ -9,7 +9,11 @@ export const Header = styled.header`
   color: white;
 `;
 
-export const SearchArea = styled.div`
+export const PageTittle = styled.h2`
+  cursor: pointer;
+`;
+
+export const SearchArea = styled.form`
   width: 400px;
 `;
 

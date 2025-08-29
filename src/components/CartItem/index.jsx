@@ -1,16 +1,25 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import * as S from "./styles";
+import { useDispatch } from "react-redux";
+import { removeCart } from "../../redux/cart/slice";
+import { dotToComma } from "../../utils/stringFormat";
 
-const CartItem = () => {
+const CartItem = ({ currentMovie }) => {
+  const dispatch = useDispatch();
+
+  const removeOfCart = () => {
+    dispatch(removeCart(currentMovie.id));
+  };
+
   return (
     <S.ItemContainer>
-      <S.ItemImage src="https://image.tmdb.org/t/p/w500/j9hwS307Zlc5mQTbAnwV75vXG0H.jpg" />
+      <S.ItemImage src={currentMovie.poster} />
       <S.ItemInfos>
-        <S.MovieTittle>Os Vingadores</S.MovieTittle>
-        <S.MovieProducer>Marvel Studios</S.MovieProducer>
+        <S.MovieTittle>{currentMovie.title}</S.MovieTittle>
+        <S.MovieProducer>{dotToComma(currentMovie.price)}</S.MovieProducer>
       </S.ItemInfos>
-      <S.RemoveButton>
+      <S.RemoveButton onClick={removeOfCart}>
         <FontAwesomeIcon icon={faTrashCan} />
       </S.RemoveButton>
     </S.ItemContainer>

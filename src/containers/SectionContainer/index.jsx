@@ -1,15 +1,14 @@
 import * as S from "./styles";
 import MovieCard from "../../components/MovieCard";
 
-const SectionContainer = () => {
+const SectionContainer = ({ tittle, movies }) => {
   return (
     <S.SectionContainer>
-      <S.SectionTittle>Em Alta</S.SectionTittle>
+      <S.SectionTittle>{tittle}</S.SectionTittle>
       <S.SectionList>
-        {Array.from({ length: 4 }, (_, i) => i + 1).map((movie) => (
-          <MovieCard />
+        {movies.map((movie) => (
+          <MovieCard key={movie.id} currentMovie={movie} />
         ))}
-        <MovieCard />
       </S.SectionList>
     </S.SectionContainer>
   );
