@@ -1,7 +1,7 @@
 import * as S from "./styles";
 import SectionContainer from "../SectionContainer";
 import { useSelector } from "react-redux";
-import * as F from "../../utils/filters";
+import * as F from "../../lib/filters";
 
 const MainHighlights = () => {
   const moviesCollection = useSelector((state) => state.movies);

@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch } from "react-redux";
 import * as S from "./styles";
-import { dotToComma, maxString } from "../../utils/stringFormat";
+import { dotToComma, maxString } from "../../lib/stringFormat";
 import { addCart } from "../../redux/cart/slice";
 
 const MovieCard = ({ currentMovie }) => {

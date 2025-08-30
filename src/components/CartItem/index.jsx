@@ -3,7 +3,7 @@ import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import * as S from "./styles";
 import { useDispatch } from "react-redux";
 import { removeCart } from "../../redux/cart/slice";
-import { dotToComma } from "../../utils/stringFormat";
+import { dotToComma } from "../../lib/stringFormat";
 
 const CartItem = ({ currentMovie }) => {
   const dispatch = useDispatch();

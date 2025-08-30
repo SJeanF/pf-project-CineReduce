@@ -21,8 +21,11 @@ const AdminArea = () => {
     e.preventDefault();
     if (addFormMode) {
       dispatch(addMovieToCollection(inputsValue));
+      setInputsValue({});
     } else {
       dispatch(updateMovie(inputsValue));
+      setInputsValue({});
+      setAddFormMode(true);
     }
   };
 

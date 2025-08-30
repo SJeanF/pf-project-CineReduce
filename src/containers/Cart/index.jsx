@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import CartItem from "../../components/CartItem";
 import * as S from "./styles";
 import { selectTotalCart } from "../../redux/cart/selectors";
-import { dotToComma } from "../../utils/stringFormat";
+import { dotToComma } from "../../lib/stringFormat";
 
 const Cart = ({ isVisible, setIsVisible }) => {
   const cart = useSelector((state) => state.cart);

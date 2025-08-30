@@ -1,46 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
 import filmes from "../../assets/database.json";
-import { randomNumber } from "../../utils/numbers";
+import { randomNumber } from "../../lib/numbers";
+import { crudFunctions } from "../../lib/crudfunctions";
 
-const initialState = filmes;
+export const STORAGE_KEY = "PF::movies";
+
+const savedMovies = JSON.parse(localStorage.getItem(STORAGE_KEY));
+const initialState = savedMovies || filmes;
 
 const databaseSlice = createSlice({
   name: "dataBase",
   initialState,
-  reducers: {
-    resetCollection: (state, action) => {
-      return filmes;
-    },
-
-    addMovieToCollection: (state, action) => {
-      const numeroRandom = randomNumber();
-      while (state.some((movie) => !(movie.id === numeroRandom))) {
-        numeroRandom = randomNumber();
-      }
-      state.push({ ...action.payload, id: numeroRandom });
-    },
-
-    removeMovieOfCollection: (state, action) => {
-      alert("filme removido com sucesso");
-      return state.filter((movie) => !(movie.id === action.payload));
-    },
-
-    updateMovie: (state, action) => {
-      const { id, ...updatedData } = action.payload;
-
-      const movieIndex = state.findIndex((movie) => movie.id === id);
-      if (movieIndex !== -1) {
-        state[movieIndex] = { ...state[movieIndex], ...updatedData };
-      }
-    },
-  },
+  reducers: { ...crudFunctions },
 });
 
 export default databaseSlice.reducer;
-
-export const {
-  resetCollection,
-  addMovieToCollection,
-  removeMovieOfCollection,
-  updateMovie,
-} = databaseSlice.actions;
+export const { addMovieToCollection, removeMovieOfCollection, updateMovie } =
+  databaseSlice.actions;
