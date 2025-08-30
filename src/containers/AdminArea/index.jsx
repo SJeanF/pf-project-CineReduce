@@ -50,6 +50,15 @@ const AdminArea = () => {
           </S.SectionTitle>
           <S.MovieForm onSubmit={handleSubmit}>
             <S.Input
+              value={inputsValue.poster || ""}
+              onChange={(e) =>
+                setInputsValue({ ...inputsValue, poster: e.target.value })
+              }
+              type="text"
+              placeholder="Poster"
+              required
+            />
+            <S.Input
               value={inputsValue.title || ""}
               onChange={(e) =>
                 setInputsValue({ ...inputsValue, title: e.target.value })
