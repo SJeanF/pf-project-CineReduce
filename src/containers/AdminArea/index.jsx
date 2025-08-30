@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import AdminMovieListItem from "../../components/AdminMovieListItem";
 import * as S from "./styles";
 import { useDispatch, useSelector } from "react-redux";
@@ -9,6 +9,7 @@ const AdminArea = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const movies = useSelector((state) => state.movies);
+  const sectionRef = useRef();
 
   const [addFormMode, setAddFormMode] = useState(true);
   const [inputsValue, setInputsValue] = useState({});
@@ -35,9 +36,13 @@ const AdminArea = () => {
     navigate("/");
   };
 
+  const scrollToSection = () => {
+    sectionRef.current.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <>
-      <S.Header onClick={() => console.log(movies)}>
+      <S.Header ref={sectionRef}>
         <h1>NetoFilho4Adimin</h1>
       </S.Header>
 
@@ -125,6 +130,7 @@ const AdminArea = () => {
           <S.MovieList>
             {movies.map((movie) => (
               <AdminMovieListItem
+                scrollTop={scrollToSection}
                 key={movie.id}
                 movie={movie}
                 setUpdateMode={setAddFormMode}

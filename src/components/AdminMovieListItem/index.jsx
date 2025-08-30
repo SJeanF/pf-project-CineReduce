@@ -2,7 +2,12 @@ import { useDispatch } from "react-redux";
 import * as S from "./styles";
 import { removeMovieOfCollection } from "../../redux/database/slice";
 
-const AdminMovieListItem = ({ movie, setUpdateMode, setEditingMovie }) => {
+const AdminMovieListItem = ({
+  movie,
+  setUpdateMode,
+  setEditingMovie,
+  scrollTop,
+}) => {
   const dispatch = useDispatch();
 
   const handleRemoveFilm = () => {
@@ -26,6 +31,7 @@ digite 1 para confirmar`
           onClick={() => {
             setUpdateMode(false);
             setEditingMovie(movie);
+            scrollTop();
           }}
         >
           Alterar
