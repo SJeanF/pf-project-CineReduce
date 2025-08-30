@@ -3,8 +3,10 @@ import AdminMovieListItem from "../../components/AdminMovieListItem";
 import * as S from "./styles";
 import { useDispatch, useSelector } from "react-redux";
 import { addMovieToCollection, updateMovie } from "../../redux/database/slice";
+import { useNavigate } from "react-router-dom";
 
 const AdminArea = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const movies = useSelector((state) => state.movies);
 
@@ -27,6 +29,10 @@ const AdminArea = () => {
       setInputsValue({});
       setAddFormMode(true);
     }
+  };
+
+  const handleBack = () => {
+    navigate("/");
   };
 
   return (
@@ -119,7 +125,7 @@ const AdminArea = () => {
           </S.MovieList>
         </S.Section>
 
-        <S.BackLink href="index.html">Voltar para a Loja</S.BackLink>
+        <S.BackLink onClick={handleBack}>Voltar para a Loja</S.BackLink>
       </S.Main>
 
       <S.Footer>

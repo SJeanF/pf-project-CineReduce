@@ -84,4 +84,5 @@ export const BackLink = styled.p`
   text-align: center;
   color: rgb(46, 46, 214);
   text-decoration: none;
+  cursor: pointer;
 `;

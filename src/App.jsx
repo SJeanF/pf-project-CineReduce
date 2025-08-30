@@ -6,6 +6,8 @@ import Footer from "./components/Footer";
 import MainSearch from "./containers/MainSearch";
 import AdminArea from "./containers/AdminArea";
 
+import { randomRoute } from "./components/Header";
+
 function App() {
   return (
     <>
@@ -13,7 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<MainHighlights />} />
         <Route path="/search" element={<MainSearch />} />
-        <Route path="/onlyadminspodem" element={<AdminArea />} />
+        <Route path={`/${randomRoute}`} element={<AdminArea />} />
       </Routes>
       <Footer />
     </>

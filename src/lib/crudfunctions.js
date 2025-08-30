@@ -1,3 +1,5 @@
+import { randomNumber } from "./numbers";
+
 const addMovieToCollection = (state, action) => {
   let numeroRandom = randomNumber();
   while (state.some((movie) => movie.id === numeroRandom)) {

@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 import filmes from "../../assets/database.json";
-import { randomNumber } from "../../lib/numbers";
 import { crudFunctions } from "../../lib/crudfunctions";
 
 export const STORAGE_KEY = "PF::movies";

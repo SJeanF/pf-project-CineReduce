@@ -5,19 +5,26 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import Cart from "../../containers/Cart";
 import * as S from "./styles";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { randomNumber } from "../../lib/numbers";
+
+export const randomRoute = randomNumber();
 
 const Header = () => {
   const [cartVisibility, setCartVisibility] = useState(false);
   const [query, setQuery] = useState("");
   const navigate = useNavigate();
 
+  useEffect(() => {
+    window.NetoFilho4Adim = () => {
+      navigate(`/${randomRoute}`);
+    };
+  }, []);
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (query === "DavaJhonas") {
-      navigate("/onlyadminspodem");
-    } else if (query.trim()) {
+    if (query.trim()) {
       navigate(`/search?q=${query}`);
     }
   };
