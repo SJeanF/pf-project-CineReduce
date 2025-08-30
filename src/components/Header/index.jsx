@@ -15,7 +15,9 @@ const Header = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (query.trim()) {
+    if (query === "DavaJhonas") {
+      navigate("/onlyadminspodem");
+    } else if (query.trim()) {
       navigate(`/search?q=${query}`);
     }
   };

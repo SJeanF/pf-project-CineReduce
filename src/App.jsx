@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import MainHighlights from "./containers/MainHighlights";
 import Footer from "./components/Footer";
 import MainSearch from "./containers/MainSearch";
+import AdminArea from "./containers/AdminArea";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<MainHighlights />} />
         <Route path="/search" element={<MainSearch />} />
+        <Route path="/onlyadminspodem" element={<AdminArea />} />
       </Routes>
       <Footer />
     </>

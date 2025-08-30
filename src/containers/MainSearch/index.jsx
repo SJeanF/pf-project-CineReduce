@@ -18,8 +18,7 @@ const MainSearch = () => {
       <S.SearchSectionContainer>
         <S.SearchSectionHeader>
           <S.SearchSectionTitle>
-            Resultados para pesquisa de... "Prono geu bem vindo ao site
-            pornoguei"
+            Resultados para pesquisa de... "{query}"
           </S.SearchSectionTitle>
         </S.SearchSectionHeader>
         <S.SearchSectionMoviesList>
