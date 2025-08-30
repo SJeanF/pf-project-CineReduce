@@ -8,6 +8,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
+    padding-top: 67px;
     font-family: Roboto, sans-serif;
   }
 
