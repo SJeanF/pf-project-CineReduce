@@ -4,9 +4,13 @@ export const Header = styled.header`
   display: flex;
   justify-content: space-around;
   align-items: center;
+  width: 100svw;
   background-color: #0c0020;
   padding: 16px 0;
   color: white;
+  position: fixed;
+  top: 0;
+  z-index: 1;
 `;
 
 export const PageTittle = styled.h2`

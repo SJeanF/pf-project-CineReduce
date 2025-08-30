@@ -22,22 +22,25 @@ const Header = () => {
     };
   }, []);
 
-  const handleSubmit = (e) => {
+  const handleChange = (e) => {
     e.preventDefault();
     if (query.trim()) {
       navigate(`/search?q=${query}`);
+    } else {
+      navigate("/");
     }
   };
 
   return (
     <S.Header>
       <S.PageTittle onClick={() => navigate("./")}>NetoFilho</S.PageTittle>
-      <S.SearchArea onSubmit={handleSubmit}>
+      <S.SearchArea onSubmit={(e) => e.preventDefault()}>
         <S.SearchBar
           type="text"
           placeholder="Titulo do filme buscado"
           onChange={(e) => setQuery(e.target.value)}
           value={query}
+          onKeyUp={handleChange}
         />
         <S.SearchButton type="submit">
           <FontAwesomeIcon icon={faMagnifyingGlass} />
