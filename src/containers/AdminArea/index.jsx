@@ -43,7 +43,7 @@ const AdminArea = () => {
   return (
     <>
       <S.Header ref={sectionRef}>
-        <h1>NetoFilho4Adimin</h1>
+        <h1>CineReduce4Adm</h1>
       </S.Header>
 
       <S.Main>
@@ -144,7 +144,7 @@ const AdminArea = () => {
       </S.Main>
 
       <S.Footer>
-        <p>NetoFilho - Área do Administrador</p>
+        <p>CineReduce - Área do Administrador</p>
       </S.Footer>
     </>
   );
