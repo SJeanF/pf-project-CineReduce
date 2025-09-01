@@ -8,6 +8,7 @@ import * as S from "./styles";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { randomNumber } from "../../lib/numbers";
+import headerLogo from "../../assets/headerLogo.png";
 
 export const randomRoute = randomNumber();
 
@@ -17,7 +18,7 @@ const Header = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    window.NetoFilho4Adim = () => {
+    window.CineReduce4Adm = () => {
       navigate(`/${randomRoute}`);
     };
   }, []);
@@ -33,7 +34,7 @@ const Header = () => {
 
   return (
     <S.Header>
-      <S.PageTittle onClick={() => navigate("./")}>NetoFilho</S.PageTittle>
+      <S.PageTittle src={headerLogo} onClick={() => navigate("./")} />
       <S.SearchArea onSubmit={(e) => e.preventDefault()}>
         <S.SearchBar
           type="text"

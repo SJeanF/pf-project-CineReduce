@@ -5,16 +5,17 @@ export const Header = styled.header`
   justify-content: space-around;
   align-items: center;
   width: 100svw;
-  background-color: #0c0020;
-  padding: 16px 0;
+  background-color: black;
+  padding: 160x 0;
   color: white;
   position: fixed;
   top: 0;
   z-index: 1;
 `;
 
-export const PageTittle = styled.h2`
+export const PageTittle = styled.img`
   cursor: pointer;
+  max-height: 67px;
 `;
 
 export const SearchArea = styled.form`

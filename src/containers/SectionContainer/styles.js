@@ -5,7 +5,7 @@ export const SectionContainer = styled.div`
   max-height: 500px;
   height: 100%;
   margin-top: 32px;
-  background-color: #000;
+  background-color: #001b2bff;
   display: flex;
   flex-direction: column;
   justify-content: center;

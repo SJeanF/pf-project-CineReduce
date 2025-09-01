@@ -7,28 +7,30 @@ export const STORAGE_KEY = "PF::movies";
 const savedMovies = JSON.parse(localStorage.getItem(STORAGE_KEY));
 const initialState = savedMovies || filmes;
 
+// função pura para gerar um id único
+const generateUniqueId = (state, generator) => {
+  const newId = generator();
+  return state.some((movie) => movie.id === newId)
+    ? generateUniqueId(state, generator) // recursão no lugar do while
+    : newId;
+};
+
 const databaseSlice = createSlice({
   name: "dataBase",
   initialState,
   reducers: {
     addMovieToCollection: (state, action) => {
-      let numeroRandom = randomNumber();
-      while (state.some((movie) => movie.id === numeroRandom)) {
-        numeroRandom = randomNumber();
-      }
-      return [...state, { ...action.payload, id: numeroRandom }];
+      const id = generateUniqueId(state, randomNumber);
+      return [...state, { ...action.payload, id }];
     },
 
-    removeMovieOfCollection: (state, action) => {
-      return state.filter((movie) => movie.id !== action.payload);
-    },
+    removeMovieOfCollection: (state, action) =>
+      state.filter((movie) => movie.id !== action.payload),
 
-    updateMovie: (state, action) => {
-      const { id, ...updatedData } = action.payload;
-      return state.map((movie) =>
-        movie.id === id ? { ...movie, ...updatedData } : movie
-      );
-    },
+    updateMovie: (state, action) =>
+      state.map((movie) =>
+        movie.id === action.payload.id ? { ...movie, ...action.payload } : movie
+      ),
   },
 });
 
