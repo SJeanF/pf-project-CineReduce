@@ -7,7 +7,6 @@ export const STORAGE_KEY = "PF::movies";
 const savedMovies = JSON.parse(localStorage.getItem(STORAGE_KEY));
 const initialState = savedMovies || filmes;
 
-// função pura para gerar um id único
 const generateUniqueId = (state, generator) => {
   const newId = generator();
   return state.some((movie) => movie.id === newId)

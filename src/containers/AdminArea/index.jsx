@@ -84,7 +84,10 @@ const AdminArea = () => {
             <S.Input
               value={inputsValue.vote_average || ""}
               onChange={(e) =>
-                setInputsValue({ ...inputsValue, vote_average: e.target.value })
+                setInputsValue({
+                  ...inputsValue,
+                  vote_average: parseFloat(e.target.value),
+                })
               }
               type="number"
               placeholder="Nota"
@@ -93,7 +96,10 @@ const AdminArea = () => {
             <S.Input
               value={inputsValue.budget || ""}
               onChange={(e) =>
-                setInputsValue({ ...inputsValue, budget: e.target.value })
+                setInputsValue({
+                  ...inputsValue,
+                  budget: parseFloat(e.target.value),
+                })
               }
               type="number"
               placeholder="Orçamento"
@@ -101,7 +107,10 @@ const AdminArea = () => {
             <S.Input
               value={inputsValue.revenue || ""}
               onChange={(e) =>
-                setInputsValue({ ...inputsValue, revenue: e.target.value })
+                setInputsValue({
+                  ...inputsValue,
+                  revenue: parseFloat(e.target.value),
+                })
               }
               type="number"
               placeholder="Arrecadação"
@@ -109,7 +118,10 @@ const AdminArea = () => {
             <S.Input
               value={inputsValue.price || ""}
               onChange={(e) =>
-                setInputsValue({ ...inputsValue, price: e.target.value })
+                setInputsValue({
+                  ...inputsValue,
+                  price: parseFloat(e.target.value),
+                })
               }
               type="number"
               placeholder="Preço"
