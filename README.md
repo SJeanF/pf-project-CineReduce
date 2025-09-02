@@ -1,12 +1,37 @@
-# React + Vite
+# 🎬 CineReduce
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**CineReduce** é um projeto que simula uma página de compra para uma locadora de filmes, com funcionalidades voltadas tanto para usuários quanto para administradores.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📌 Descrição Geral
 
-## Expanding the ESLint configuration
+A intenção do projeto é oferecer uma experiência interativa de navegação e gerenciamento de filmes em uma locadora online fictícia. Os usuários podem explorar a coleção de filmes, adicionar ou remover itens do carrinho e buscar títulos específicos. Administradores têm acesso a funcionalidades exclusivas de gerenciamento da coleção.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🧑‍💻 Funcionalidades de Usuário
+
+- 🎞️ **Adicionar ou remover filmes do carrinho** clicando no ícone de carrinho em cada card de filme.
+- 🛒 **Visualizar o carrinho completo** por meio de um botão dedicado.
+- 🔍 **Buscar filmes** utilizando a barra de pesquisa.
+
+---
+
+## 🔐 Funcionalidades de Administrador
+
+> ⚠️ O acesso à área administrativa é restrito e feito pelo console do navegador.
+
+### Como acessar:
+
+Abra o console do navegador e execute o seguinte comando:
+
+```javascript
+CineReduce4Adm();
+```
+
+### Onde o administrador pode
+
+- ➕ **Adicionar um novo filme** à coleção.
+- ✏️ **Editar informações** de filmes existentes.
+- 🗑️ **Remover filmes** da coleção.

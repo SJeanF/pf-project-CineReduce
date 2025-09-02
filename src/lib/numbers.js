@@ -4,6 +4,6 @@ export const randomNumber = (min = 0, max = 99999) =>
 export const generateUniqueId = (state, generator) => {
   const newId = generator();
   return state.some((movie) => movie.id === newId)
-    ? generateUniqueId(state, generator) // recursão no lugar do while
+    ? generateUniqueId(state, generator)
     : newId;
 };

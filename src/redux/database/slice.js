@@ -1,18 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 import filmes from "../../assets/database.json";
-import { randomNumber } from "../../lib/numbers";
+import { randomNumber, generateUniqueId } from "../../lib/numbers";
 
 export const STORAGE_KEY = "PF::movies";
 
 const savedMovies = JSON.parse(localStorage.getItem(STORAGE_KEY));
 const initialState = savedMovies || filmes;
-
-const generateUniqueId = (state, generator) => {
-  const newId = generator();
-  return state.some((movie) => movie.id === newId)
-    ? generateUniqueId(state, generator) // recursão no lugar do while
-    : newId;
-};
 
 const databaseSlice = createSlice({
   name: "dataBase",
